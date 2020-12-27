@@ -1,0 +1,286 @@
+#include <iostream>
+using namespace std;
+
+class BankingSystem{
+private:
+	string BankName,  Location, Branch;
+	int NoOfEmployees;
+public:
+	void getInfo(){
+		cout << "\n\n~~~ GETTING BANK INFORMATION.... ~~~\n\n";
+//		BankName = "Al_Habib"; NoOfEmployees = 12; Location = "Sukkur" ; Branch = "Military_Road";
+		
+		cout << "Enter Bank Name \t: "; cin >> BankName;
+		cout << "Enter Total Employees \t: "; cin >> NoOfEmployees;
+		cout << "Enter Bank Location \t: "; cin >> Location;
+		cout << "Enter Branch Name \t: "; cin >> Branch;
+//		
+		cout << endl;
+		
+	}
+	
+	void showInfo(){
+		cout << "\n\n~~~ BANK INFORMATION.... ~~~\n\n";
+		
+		cout << "Bank Name \t: "<< BankName;
+		cout << "\nT. Employees \t: "<< NoOfEmployees;
+		cout << "\nBank Location \t: "<< Location;
+		cout << "\nBranch Name \t: "<< Branch;
+	}
+};
+class BankFunctions : public BankingSystem{
+	private:
+		int NoOfFunctions ;
+		string function;
+	public:	
+		void showFunction(){
+			cout << "There are 2 functions i.e Primary and Secondary and 3 levels of employees.";
+		}
+
+};
+class PrimaryFunctions : public BankFunctions{
+	private:
+		string designation, function, salary;
+	public:
+		
+		//Administrator Primary Functions
+		void OverseasOperations(){
+			designation = "Branch Manager"; function = "Oversears Operations"; salary= "12000";
+			cout << designation <<"\t\t\t"<<salary <<"\t\t"<< function << "\t";
+		}
+		
+		void LoanApplications(){
+			designation = "\nLoan Officer"; function = "Loan Applications"; salary= "11000";
+			cout << designation <<"\t\t\t"<<salary <<"\t\t"<< function << "\t";
+		}
+		
+		void OverseasAssets(){
+			designation = "\nRemarketing Manager"; function = "Overseas Assets"; salary= "10000";
+			cout << designation <<"\t\t"<<salary <<"\t\t"<< function << "\t\t";
+		}
+		
+		void CardOperations(){
+			designation = "\nCard Operation Manager"; function = "Card Operations"; salary= "10000";
+			cout << designation <<"\t\t"<<salary <<"\t\t"<< function << "\t\t";
+		}
+		
+		//Executive Primary Functions
+		void TeamManagement(){
+			designation = "Associate Manager"; function = "Team Management"; salary= "9000";
+			cout << designation <<"\t\t"<<salary <<"\t\t"<< function << "\t\t";
+		}
+		void ATMMonitoring(){
+			designation = "\nATM Specialist"; function = "ATM Monitoring"; salary= "8000";
+			cout << designation <<"\t\t\t"<<salary <<"\t\t"<< function << "\t\t";
+		}
+		void CreditMonitoring(){
+						designation = "\nCredit Manager"; function = "Credit Monitoring"; salary= "7000";
+			cout << designation <<"\t\t\t"<<salary <<"\t\t"<< function << "\t";
+		}
+		void DebitMonitoring(){
+						designation = "\nDebit Manager"; function = "DebitMonitoring"; salary= "6000";
+			cout << designation <<"\t\t\t"<<salary <<"\t\t"<< function << "\t\t";
+		}
+};
+class SecondaryFunctions : public BankFunctions{
+	private:
+		string designation, function, salary;
+	public:
+		void CustomerVerification1(){
+			designation = "Head Clerk"; function = "Customer Verification"; salary= "5000";
+			cout << designation <<"\t\t\t"<<salary <<"\t\t"<< function << "\t";
+		}
+		void CustomerVerification2(){
+			designation = "\nJunior Clerk"; function = "Customer Verification"; salary= "4000";
+			cout << designation <<"\t\t\t"<<salary <<"\t\t"<< function << "\t";
+		}
+		void Greetings(){
+			designation = "\nTeller"; function = "Greetings"; salary= "3000";
+			cout << designation <<"\t\t\t\t"<<salary <<"\t\t"<< function << "\t\t";
+		}
+		void Security(){
+			designation = "\nSecurity Manager"; function = "Security"; salary= "2000";
+			cout << designation <<"\t\t"<<salary <<"\t\t"<< function << "\t\t";
+		}
+};
+
+class Employees : public BankingSystem{
+	private:
+		int NoOfDesignations, salary;
+	public:
+		void showNoOfDesignations(){
+			NoOfDesignations = 29;
+			cout << "No Of Designations " <<NoOfDesignations;
+		}
+};
+
+//Drive Classes of Bank Employees i.e Administrator, Executive and Lower Most.
+
+class Administrator : public Employees {
+	private:
+		string employeeName;
+	public:
+		//Getting values of Administrator Jobs
+		void getInfo(){
+			
+			cout << " Name \t: ";cin >> employeeName;
+
+//			employeeName = "Junaid Ali\n";
+			
+		}
+		
+		void showInfo(){
+			cout << employeeName ;
+		}
+
+};
+	
+class Executive : public Employees {
+	private:
+		string employeeName;
+	public:
+		//Getting values of Executive Employees
+		void getInfo(){
+			
+			cout << " Name \t: ";cin >> employeeName;
+//			employeeName = "Junaid Ali\n";
+			
+		}
+		
+		void showInfo(){
+			cout << employeeName ;
+		}
+};	
+
+class LowerMost : public Employees {
+	private:
+		string employeeName;
+	public:
+		//Getting values of Executive Employees
+		void getInfo(){
+			cout << " Name \t: ";cin >> employeeName;
+//			employeeName = "Junaid Ali\n";
+			
+		}
+		
+		void showInfo(){
+		cout << employeeName ;
+		}
+};
+
+int main(){
+cout << "\n~~~ WELCOME TO THE MINI PROJECT.... ~~~";
+BankingSystem bs;
+BankFunctions bf;
+
+
+
+bs.getInfo();
+//bs.showInfo();
+bf.showFunction();
+
+
+PrimaryFunctions f1;
+
+int ol = 1;
+
+while (ol == 1){
+cout << "\n\n~~~ GETTING CHOICE FOR LEVEL OF EMPLOYEES... ~~~\n\n";
+
+int  q;
+cout << "Select level of employees :\n\n1. Administrator Level\n2. Executive Level\n3. Lower Most Level\n\nselect : "; cin >> q;
+
+cout << "\n~~~ GETTING EMPLOYEES NAMES... ~~~\n\n";
+if (q==1){
+//Administrator Block
+
+Administrator a1,a2,a3,a4;
+
+cout <<"Branch Manager"; a1.getInfo();
+
+cout <<"Loan Officer"; a2.getInfo();
+
+cout <<"Remarketing Manager"; a3.getInfo();
+
+cout <<"Card Operation Manager"; a4.getInfo();
+
+bs.showInfo();
+
+cout << "\n\n~~~ DISPLAYING ADMINISTRATOR LEVEL EMPLOYEES INFORMATION... ~~~\n\n";
+
+cout << "Designation\t\t\tSalary\t\tFunction\t\tEmployee\n\n";
+
+f1.OverseasOperations(); a1.showInfo();
+
+f1.LoanApplications(); a2.showInfo();
+
+f1.OverseasAssets(); a3.showInfo();
+
+f1.CardOperations(); a4.showInfo();
+
+cout << "\n";
+	
+} else if(q == 2){
+//Executive Block
+Executive e1,e2,e3,e4;
+cout <<"Associate Manager"; e1.getInfo();
+
+cout <<"ATM Specialist"; e2.getInfo();
+
+cout <<"Credit Manager"; e3.getInfo();
+
+
+cout <<"Debit Manager"; e4.getInfo();
+
+bs.showInfo();
+
+cout << "\n\n~~~ DISPLAYING EXECUTIVE LEVEL EMPLOYEES INFORMATION... ~~~\n\n";
+
+cout << "Designation\t\t\tSalary\t\tFunction\t\tEmployee\n\n";
+f1.TeamManagement(); e1.showInfo();
+
+f1.ATMMonitoring(); e2.showInfo();
+
+f1.CreditMonitoring(); e3.showInfo();
+
+f1.DebitMonitoring(); e4.showInfo();
+cout << "\n";	
+
+} else if (q == 3){
+
+//Lower Most Block
+LowerMost l1,l2,l3,l4;
+SecondaryFunctions s1;
+
+cout << "Head Clerk"; l1.getInfo();
+
+cout << "Junior Clerk"; l2.getInfo();
+
+cout << "Teller"; l3.getInfo();
+
+cout << "Security Manager"; l4.getInfo();
+
+bs.showInfo();
+
+cout << "\n\n~~~ DISPLAYING LOWER MOST LEVEL EMPLOYEES INFORMATION... ~~~\n\n";
+
+cout << "Designation\t\t\tSalary\t\tFunction\t\tEmployee\n\n";
+s1.CustomerVerification1();
+l1.showInfo();
+
+s1.CustomerVerification2();
+l2.showInfo();
+
+s1.Greetings();
+l3.showInfo();
+
+
+s1.Security();
+l4.showInfo();
+}
+cout << "\n\n~~~ WANT TO REPEAT ? ~~~\n\n";
+cout << "0.\tNo\n1.\tYes\n\nChoise : ";cin>>ol;
+
+}
+
+}
